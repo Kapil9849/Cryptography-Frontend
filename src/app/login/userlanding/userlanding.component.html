@@ -1,0 +1,36 @@
+<div class="container user">
+  <div class="row mt-4">
+    <div class="col-md-8 offset-md-2">
+      <p-table [value]="files" styleClass="p-datatable-gridlines p-datatable-striped">
+        <ng-template pTemplate="header">
+            <tr>
+              <th>File Id</th>
+              <th>File Name</th>
+              <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-file let-rowIndex="rowIndex">
+            <tr>
+              <td>{{rowIndex+1}}</td>
+              <td>{{file.file_name}}</td>
+              <td>
+                <div class="row" *ngIf="!file.has_access">
+                  <div class="col-md-6 offset-md-3">
+                    <p-button  label="Request Access"  styleClass="p-button-secondary"
+                    (onClick)="RequestAccess(file.file_name)"></p-button>
+                  </div>
+                </div>
+                <div class="row" *ngIf="file.has_access">
+                  <div class="col-md-6 offset-md-3">
+                    <p-button  label="View"  styleClass="p-button-success"
+                    (onClick)="ViewFile(file.file_name)"></p-button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+  </div>
+</div>
+<p-toast position="bottom-right"></p-toast>

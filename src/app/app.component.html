@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+    <a class="navbar-brand" >Crypto Guardians</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item" *ngIf="!LoggedIn">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="LoggedIn">
+          <a class="nav-link" (click)="Logout()" routerLink="/login">Logout</a>
+        </li>
+        <li class="nav-item" *ngIf="LoggedIn && isuser">
+          <a class="nav-link" routerLink="/userlanding" >User Home</a>
+        </li>
+        <li class="nav-item" *ngIf="LoggedIn && isadmin">
+          <a class="nav-link" routerLink="/adminlanding" >Admin Home</a>
+        </li>
+      </ul>
+      <div class="d-flex ms-auto">
+        <h5 style="color: white;">{{username}}</h5>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

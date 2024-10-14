@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-6 offset-md-3">
+      <p-card>
+        <ng-template pTemplate="header">
+          <h2 class="mb-4 mt-4 pt-4 text-center">Login</h2>
+        </ng-template>
+          <div class="container text-center">
+            <div class="row mt-4">
+              <div class="offset-md-2 col-md-8">
+                <input type="text" id="username" placeholder="Username/Email" pInputText [(ngModel)]="loginModel.username"/>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="offset-md-2 col-md-8">
+                <input type="password" id="password"  placeholder="Password" pInputText [(ngModel)]="loginModel.password"/>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-4 offset-md-4">
+                <p-button label="Login"  styleClass="login-button" (onClick)="Login()"></p-button>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4" *ngIf="invalid_form">
+            <div class="col-md-6 offset-md-3">
+              <div class="alert alert-danger" role="alert">
+                {{login_message}}
+              </div>
+            </div>
+          </div>
+      </p-card>
+    </div>
+  </div>
+
+</div>

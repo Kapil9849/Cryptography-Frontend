@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col">
+    <p-tabView>
+      <p-tabPanel header="Decrypted File">
+        <p-card>
+          <ng-template pTemplate="header">
+            <h2 class="mb-4 text-center">{{file_name}}</h2>
+          </ng-template>
+            <ul>
+              <li *ngFor="let item of file_data">
+                {{item}}
+              </li>
+            </ul>
+      </p-card>
+      </p-tabPanel>
+      <p-tabPanel header="Encrypted File">
+          <span class="textstyle">
+            {{cipher_text}}
+          </span>
+      </p-tabPanel>
+  </p-tabView>
+    </div>
+  </div>
+</div>
+<p-toast position="bottom-right"></p-toast>
+
